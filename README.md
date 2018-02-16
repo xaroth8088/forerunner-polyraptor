@@ -63,14 +63,14 @@ This is a one-time mandatory step.  It can safely be re-run anytime you want to 
 ### Developing
 `$ yarn container:start` or `$ npm run container:start`
 
-At this point, you can visit http://localhost:8080 to see the 502 error page served from nginx.
+At this point, you can visit http://localhost to see the 502 error page served from nginx.
 
 Once in the container:
 `# yarn dev`
 
 Webpack will compile the application and start up the dev server.
 
-Loading http://localhost:8080 to see the 'Hello, world!' app.
+Loading http://localhost to see the 'Hello, world!' app.
 
 By default, the container publishes the node debugger on port 9876.
 

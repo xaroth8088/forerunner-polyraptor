@@ -52,3 +52,5 @@ crashlytics-build.properties
 fabric.properties
 
 .idea/
+/app/node_modules/
+/app/build/
