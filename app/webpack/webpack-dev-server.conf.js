@@ -47,7 +47,12 @@ module.exports = {
         symlinks: false
     },
     plugins: [
-        new StartServerPlugin('server.js'),
+        new StartServerPlugin(
+            {
+                name: 'server.js',
+                nodeArgs: ['--inspect=0.0.0.0:9230']
+            }
+        ),
         new webpack.NamedModulesPlugin(),
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoEmitOnErrorsPlugin(),
