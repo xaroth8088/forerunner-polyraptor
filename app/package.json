@@ -15,7 +15,13 @@
     "clean": "rimraf build",
     "start:server": "../scripts/container_only.sh && webpack --config webpack/webpack-dev-server.conf.js",
     "start:client": "../scripts/container_only.sh && webpack-serve webpack/webpack-dev-client.conf.js",
-    "start": "yarn clean && npm-run-all --parallel start:server start:client"
+    "start": "yarn clean && npm-run-all --parallel start:server start:client",
+    "lint:eslint": "yarn eslint --ext js client server",
+    "lint:fix:eslint": "yarn eslint --fix --ext js client server",
+    "lint:stylelint": "yarn stylelint \"client/**/*.{css,scss}\"",
+    "lint:fix:stylelint": "yarn stylelint --fix \"client/**/*.{css,scss}\"",
+    "lint": "npm-run-all --continue-on-error --parallel lint:eslint lint:stylelint",
+    "lint:fix": "npm-run-all --continue-on-error --parallel lint:fix:eslint lint:fix:stylelint"
   },
   "dependencies": {
     "axios": "^0.18.0",
@@ -39,6 +45,7 @@
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
+    "babel-eslint": "^8.2.3",
     "babel-loader": "^7.1.4",
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
@@ -46,9 +53,19 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "cross-env": "^5.1.5",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-import-resolver-webpack": "^0.10.0",
+    "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.8.2",
     "react-hot-loader": "^4.2.0",
     "rimraf": "^2.6.2",
     "start-server-webpack-plugin": "^2.2.5",
+    "stylelint": "^9.2.1",
+    "stylelint-config-standard": "^18.2.0",
+    "stylelint-order": "^0.8.1",
+    "stylelint-scss": "^3.1.0",
     "webpack": "^4.8.3",
     "webpack-cli": "^2.1.3",
     "webpack-serve": "^1.0.2"
