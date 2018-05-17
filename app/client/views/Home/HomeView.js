@@ -8,6 +8,7 @@ const HomeView = props => (
         <div className="home__count">Current count: {props.count}</div>
         <button onClick={props.onSimpleIncrement}>Simple Increment</button>
         <button onClick={props.onAsyncIncrement}>Async Increment</button>
+        <button onClick={props.onLargeIncrement}>Large Increment</button>
     </div>
 );
 
@@ -15,6 +16,7 @@ HomeView.propTypes = {
     count: PropTypes.number.isRequired,
     onSimpleIncrement: PropTypes.func.isRequired,
     onAsyncIncrement: PropTypes.func.isRequired,
+    onLargeIncrement: PropTypes.func.isRequired,
 };
 
 export default HomeView;

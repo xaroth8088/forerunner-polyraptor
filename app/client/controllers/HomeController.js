@@ -16,6 +16,9 @@ const mapDispatchToProps = dispatch => ({
     onAsyncIncrement() {
         dispatch(asyncIncrement());
     },
+    onLargeIncrement() {
+        dispatch(incrementCounter(5));
+    },
 });
 
 const HomeController = props => (
@@ -23,6 +26,7 @@ const HomeController = props => (
         count={props.count}
         onSimpleIncrement={props.onSimpleIncrement}
         onAsyncIncrement={props.onAsyncIncrement}
+        onLargeIncrement={props.onLargeIncrement}
     />
 );
 
@@ -30,6 +34,7 @@ HomeController.propTypes = {
     count: PropTypes.number.isRequired,
     onSimpleIncrement: PropTypes.func.isRequired,
     onAsyncIncrement: PropTypes.func.isRequired,
+    onLargeIncrement: PropTypes.func.isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomeController);
