@@ -1,4 +1,4 @@
-FROM mhart/alpine-node:9.5.0
+FROM mhart/alpine-node:10.1.0
 
 RUN apk update && \
 	apk add nginx git build-base python bash && \

@@ -1,46 +1,92 @@
 const webpack = require('webpack');
 const path = require('path');
 
+const autoprefixer = require('autoprefixer');
+const browserslist = require('./browserslist.js');
+
+const autoprefixerPlugin = autoprefixer({
+    cascade: false,
+    browsers: browserslist,
+});
+
+
 module.exports = {
+    mode: 'development',
     devtool: 'inline-source-map',
     entry: [
-        'react-hot-loader/patch',
-        'webpack-dev-server/client?http://localhost:3001',
-        'webpack/hot/only-dev-server',
-        'index'
+        'main/index'
     ],
     target: 'web',
     module: {
-        rules: [{
-            test: /\.js?|.es6$/,
-            exclude: /(node_modules|bower_components)/,
-            include: path.resolve(__dirname, '..'),
-            use: [{
-                loader: 'babel-loader',
-                options: {
-                    presets: [
-                        'react',
-                        [
-                            'env',
-                            {
-                                targets: {
-                                    browsers: ['last 2 versions']
-                                },
-                                modules: false
-                            }
+        rules: [
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                include: path.resolve(__dirname, '..'),
+                use: [{
+                    loader: 'babel-loader',
+                    options: {
+                        presets: [
+                            'react',
+                            [
+                                'env',
+                                {
+                                    targets: {
+                                        browsers: browserslist
+                                    },
+                                    modules: false
+                                }
+                            ]
+                        ],
+                        plugins: [
+                            'syntax-dynamic-import',
+                            'transform-object-rest-spread',
+                            'transform-class-properties',
+                            'react-hot-loader/babel'
                         ]
-                    ],
-                    plugins: [
-                        'syntax-dynamic-import',
-                        'transform-object-rest-spread',
-                        'transform-class-properties'
-                    ]
-                }
-            }]
-        }]
+                    }
+                }]
+            },
+            {
+                test: /\.s?css$/,
+                include: [
+                    path.resolve(__dirname, '../client'),
+                    path.resolve(__dirname, '../node_modules'),
+                ],
+                use: [
+                    {
+                        loader: 'style-loader',
+                        options: {
+                            sourceMap: true,
+                        },
+                    },
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            sourceMap: true,
+                        },
+                    },
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            sourceMap: true,
+                            plugins: () => [
+                                autoprefixerPlugin,
+                            ],
+                        },
+                    },
+                    {
+                        loader: 'sass-loader',
+                        options: {
+                            sourceMap: true,
+                        },
+                    },
+                ],
+            }
+        ]
     },
     resolve: {
-        extensions: ['.js', '.jsx', '.es6', '.css'],
+        extensions: ['.js'],
         modules: [
             path.resolve(__dirname, '../client'),
             'node_modules'
@@ -48,23 +94,33 @@ module.exports = {
         symlinks: false
     },
     plugins: [
-        new webpack.NamedModulesPlugin(),
-        new webpack.HotModuleReplacementPlugin(),
-        new webpack.NoEmitOnErrorsPlugin(),
         new webpack.DefinePlugin({
             "process.env": {
                 "BUILD_TARGET": JSON.stringify('client')
             }
         }),
     ],
-    devServer: {
-        host: '0.0.0.0',
-        port: 3001,
-        historyApiFallback: true,
-        hot: true
-    },
     output: {
         publicPath: '/public/',
         filename: 'client.js'
+    }
+};
+
+module.exports.serve = {
+    dev: {
+        publicPath: '/public/',
+    },
+    host: '0.0.0.0',
+    port: 3001,
+    hot: {
+        host: '0.0.0.0',
+        port: 3002,
+        stats: {
+            colors: true,
+            cached: false,
+            cachedAssets: false,
+            depth: true,
+            entrypoints: true,
+        },
     }
 };

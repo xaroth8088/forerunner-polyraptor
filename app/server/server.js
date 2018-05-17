@@ -1,13 +1,18 @@
 import express from 'express';
-import AppMain from 'main/AppMain';
+import AppWrapper from 'main/AppWrapper';
 import React from 'react';
 import { renderToString } from 'react-dom/server';
+import { Provider } from 'react-redux';
+import configureStore from "reducers/configureStore";
 
 const app = express();
+const store = configureStore();
 
 app.get('*', (req, res) => {
     let application = renderToString(
-        <AppMain/>
+        <Provider store={store}>
+            <AppWrapper/>
+        </Provider>
     );
 
     let html = `<!doctype html>
