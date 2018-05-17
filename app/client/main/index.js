@@ -9,7 +9,7 @@ const store = configureStore();
 hydrate(
     (
         <Provider store={store}>
-            <AppWrapper/>
+            <AppWrapper />
         </Provider>
     ),
     document.getElementById('root')

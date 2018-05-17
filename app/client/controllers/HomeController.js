@@ -1,15 +1,15 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
-import { incrementCounter } from "reducers/Example/ExampleActions";
-import { asyncIncrement } from "reducers/Example/ExampleThunks";
+import { incrementCounter } from 'reducers/Example/ExampleActions';
+import { asyncIncrement } from 'reducers/Example/ExampleThunks';
 import HomeView from 'views/Home/HomeView';
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
     count: state.ExampleReducer.getCount(),
 });
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = dispatch => ({
     onSimpleIncrement() {
         dispatch(incrementCounter());
     },
@@ -18,7 +18,7 @@ const mapDispatchToProps = (dispatch) => ({
     },
 });
 
-const HomeController = (props) => (
+const HomeController = props => (
     <HomeView
         count={props.count}
         onSimpleIncrement={props.onSimpleIncrement}

@@ -17,8 +17,8 @@ class ExampleRecord extends Record(exampleRecordSchema, 'ExampleRecord') {
         return this.set(EXAMPLE_RECORD_KEYS.count, newCount);
     }
 
-    increment() {
-        return this.setCount(this.getCount() + 1);
+    increment(amount = 1) {
+        return this.setCount(this.getCount() + amount);
     }
 }
 

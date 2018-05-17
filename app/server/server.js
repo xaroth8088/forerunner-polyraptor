@@ -3,19 +3,19 @@ import AppWrapper from 'main/AppWrapper';
 import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { Provider } from 'react-redux';
-import configureStore from "reducers/configureStore";
+import configureStore from 'reducers/configureStore';
 
 const app = express();
 const store = configureStore();
 
 app.get('*', (req, res) => {
-    let application = renderToString(
+    const application = renderToString((
         <Provider store={store}>
-            <AppWrapper/>
+            <AppWrapper />
         </Provider>
-    );
+    ));
 
-    let html = `<!doctype html>
+    const html = `<!doctype html>
         <html class="no-js" lang="">
         <head>
             <meta charset="utf-8">
@@ -30,7 +30,7 @@ app.get('*', (req, res) => {
         </body>
     </html>`;
 
-    res.send(html)
+    res.send(html);
 });
 
 export default app;

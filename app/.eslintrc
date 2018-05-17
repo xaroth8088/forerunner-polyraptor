@@ -9,8 +9,7 @@
               ".js"
             ],
             "modules": [
-              "src",
-              "migrations",
+              "client",
               "node_modules"
             ],
             "symlinks": false
@@ -73,7 +72,10 @@
         ]
       }
     ],
-    "react/no-access-state-in-setstate": "error"
+    "react/no-access-state-in-setstate": "error",
+    "react/jsx-filename-extension": 0,
+    "react/jsx-indent": 0,
+    "react/jsx-indent-props": 0
   },
   "plugins": [
     "react",

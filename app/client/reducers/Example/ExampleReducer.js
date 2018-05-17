@@ -1,9 +1,9 @@
-import ExampleRecord from "records/ExampleRecord";
-import { INCREMENT_COUNTER, } from 'reducers/Example/ExampleActions';
+import ExampleRecord from 'records/ExampleRecord';
+import { INCREMENT_COUNTER } from 'reducers/Example/ExampleActions';
 
 /* Reducers */
 function reduceIncrementCounter(state, payload) {
-    return state.increment();
+    return state.increment(payload.amount);
 }
 
 export default function ExampleReducer(state = ExampleRecord, action = null) {

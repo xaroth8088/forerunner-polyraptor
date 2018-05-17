@@ -1,16 +1,16 @@
 .home {
-  padding: 1rem;
+	padding: 1rem;
 
-  &__title {
-    font-size: 2rem;
-    line-height: 4rem;
-    text-decoration-line: underline overline;
-    text-decoration-style: wavy;
-    text-align: center;
-  }
+	&__title {
+		font-size: 2rem;
+		line-height: 4rem;
+		text-align: center;
+		text-decoration-line: underline overline;
+		text-decoration-style: wavy;
+	}
 
-  &__count {
-    font-size: 1.5rem;
-    padding: 1rem 0;
-  }
+	&__count {
+		font-size: 1.5rem;
+		padding: 1rem 0;
+	}
 }

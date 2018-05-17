@@ -1,5 +1,5 @@
 import http from 'http';
-import app from './server.js';
+import app from './server'; // eslint-disable-line no-restricted-imports
 
 const server = http.createServer(app);
 

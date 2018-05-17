@@ -38,6 +38,7 @@ Developers who want something closer to a framework may be frustrated by the loo
 * Nginx proxy to the node server, and for serving static files
 * Differential code compilation for the server and client (i.e. there's no sense compiling your server code to ES5)
 * SCSS and CSS autoprefixing
+* JavaScript and SCSS linting
 
 ## Non-features
 Why doesn't this boilerplate include...

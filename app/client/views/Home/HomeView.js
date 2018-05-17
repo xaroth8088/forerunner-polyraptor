@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './HomeView.scss';
 
-const HomeView = (props) => (
+const HomeView = props => (
     <div className="home">
         <div className="home__title">Welcome to the Fandom React Boilerplate!</div>
         <div className="home__count">Current count: {props.count}</div>
