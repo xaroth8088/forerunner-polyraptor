@@ -24,8 +24,10 @@
     "lint:fix": "npm-run-all --continue-on-error --parallel lint:fix:eslint lint:fix:stylelint"
   },
   "dependencies": {
+    "@wikia/react-design-system": "git://github.com/Wikia/react-design-system.git",
     "axios": "^0.18.0",
     "css-loader": "^0.28.11",
+    "design-system": "git://github.com/Wikia/design-system.git#12.0.0",
     "express": "^4.16.3",
     "immutable": "^3.8.2",
     "mime": "^2.3.1",
@@ -39,12 +41,13 @@
     "react-hot-loader": "^4.3.3",
     "react-redux": "^5.0.7",
     "redux": "^4.0.0",
-    "redux-devtools-extension": "^2.13.2",
+    "redux-devtools-extension": "^2.13.4",
     "redux-thunk": "^2.3.0",
     "sass-loader": "^7.0.3",
     "style-loader": "^0.21.0"
   },
   "devDependencies": {
+    "autoprefixer": "^8.6.3",
     "babel-core": "^6.26.3",
     "babel-eslint": "^8.2.3",
     "babel-loader": "^7.1.4",
