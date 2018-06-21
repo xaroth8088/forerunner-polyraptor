@@ -264,8 +264,8 @@
     webpack-log "^1.1.2"
 
 "@wikia/react-design-system@git://github.com/Wikia/react-design-system.git":
-  version "0.4.14"
-  resolved "git://github.com/Wikia/react-design-system.git#33834acdd8db0100414f52f1a9487183748b0c35"
+  version "0.4.15"
+  resolved "git://github.com/Wikia/react-design-system.git#afff645e60cd5b3d1deb0d8793793106394424fd"
   dependencies:
     design-system "git://github.com/Wikia/design-system.git#12.0.0"
     lodash.uniqueid "^4.0.1"
@@ -5896,9 +5896,9 @@ reduce-function-call@^1.0.1:
   dependencies:
     balanced-match "^0.4.2"
 
-redux-devtools-extension@^2.13.4:
-  version "2.13.4"
-  resolved "https://registry.yarnpkg.com/redux-devtools-extension/-/redux-devtools-extension-2.13.4.tgz#f89b6c0da27c3321e20b8c100801d32a7c8420f5"
+redux-devtools-extension@^2.13.5:
+  version "2.13.5"
+  resolved "https://registry.yarnpkg.com/redux-devtools-extension/-/redux-devtools-extension-2.13.5.tgz#3ff34f7227acfeef3964194f5f7fc2765e5c5a39"
 
 redux-thunk@^2.3.0:
   version "2.3.0"
