@@ -21,9 +21,9 @@ module.exports = {
                     loader: 'babel-loader',
                     options: {
                         presets: [
-                            'react',
+                            '@babel/preset-react',
                             [
-                                'env',
+                                '@babel/preset-env',
                                 {
                                     targets: {
                                         node: 'current'
@@ -33,9 +33,9 @@ module.exports = {
                             ]
                         ],
                         plugins: [
-                            'syntax-dynamic-import',
-                            'transform-object-rest-spread',
-                            'transform-class-properties',
+                            '@babel/plugin-syntax-dynamic-import',
+                            '@babel/plugin-proposal-object-rest-spread',
+                            '@babel/plugin-proposal-class-properties',
                             'react-hot-loader/babel'
                         ]
                     }
