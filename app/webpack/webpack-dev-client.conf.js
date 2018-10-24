@@ -13,6 +13,13 @@ const autoprefixerPlugin = autoprefixer({
 module.exports = {
     mode: 'development',
     devtool: 'inline-source-map',
+    devServer: {
+        contentBase: '/public/',
+        host: '0.0.0.0',
+        port: 3001,
+        disableHostCheck: true,
+        hot: true
+    },
     entry: [
         'main/index'
     ],
@@ -96,32 +103,14 @@ module.exports = {
     },
     plugins: [
         new webpack.DefinePlugin({
-            "process.env": {
-                "BUILD_TARGET": JSON.stringify('client')
+            'process.env': {
+                BUILD_TARGET: JSON.stringify('client')
             }
         }),
+        new webpack.HotModuleReplacementPlugin()
     ],
     output: {
         publicPath: '/public/',
         filename: 'client.js'
-    }
-};
-
-module.exports.serve = {
-    dev: {
-        publicPath: '/public/',
-    },
-    host: '0.0.0.0',
-    port: 3001,
-    hot: {
-        host: '0.0.0.0',
-        port: 3002,
-        stats: {
-            colors: true,
-            cached: false,
-            cachedAssets: false,
-            depth: true,
-            entrypoints: true,
-        },
     }
 };
