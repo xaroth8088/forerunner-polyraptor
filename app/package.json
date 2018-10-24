@@ -29,6 +29,7 @@
     "css-loader": "^0.28.11",
     "design-system": "git://github.com/Wikia/design-system.git#14.2.0",
     "express": "^4.16.3",
+    "i18next": "10.5.0",
     "immutable": "^3.8.2",
     "mime": "^2.3.1",
     "node-sass": "^4.9.0",
