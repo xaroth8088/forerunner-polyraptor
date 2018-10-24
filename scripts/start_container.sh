@@ -11,7 +11,7 @@ docker run \
   --rm \
   --name "${CONTAINER_NAME}" \
   --publish "${WEB_PORT}":80 \
-  --publish 3002:3002 \
+  --publish 3001:3001 \
   --publish "${NODE_DEBUG_PORT}":9230 \
   --volume "${ROOT_DIR}/app:/app" \
   --volume "${ROOT_DIR}/docker/nginx:/nginx"\

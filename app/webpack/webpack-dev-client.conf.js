@@ -13,6 +13,13 @@ const autoprefixerPlugin = autoprefixer({
 module.exports = {
     mode: 'development',
     devtool: 'inline-source-map',
+    devServer: {
+        contentBase: '/public/',
+        host: '0.0.0.0',
+        port: 3001,
+        disableHostCheck: true,
+        hot: true
+    },
     entry: [
         'main/index'
     ],
@@ -22,16 +29,15 @@ module.exports = {
             {
                 test: /\.js$/,
                 include: [
-                    path.resolve(__dirname, '..'),
-                    path.resolve(__dirname, '../node_modules/@Wikia/react-design-system'),
+                    path.resolve(__dirname, '..')
                 ],
                 use: [{
                     loader: 'babel-loader',
                     options: {
                         presets: [
-                            'react',
+                            '@babel/preset-react',
                             [
-                                'env',
+                                '@babel/preset-env',
                                 {
                                     targets: {
                                         browsers: browserslist
@@ -41,9 +47,9 @@ module.exports = {
                             ]
                         ],
                         plugins: [
-                            'syntax-dynamic-import',
-                            'transform-object-rest-spread',
-                            'transform-class-properties',
+                            '@babel/plugin-syntax-dynamic-import',
+                            '@babel/plugin-proposal-object-rest-spread',
+                            '@babel/plugin-proposal-class-properties',
                             'react-hot-loader/babel'
                         ]
                     }
@@ -97,32 +103,14 @@ module.exports = {
     },
     plugins: [
         new webpack.DefinePlugin({
-            "process.env": {
-                "BUILD_TARGET": JSON.stringify('client')
+            'process.env': {
+                BUILD_TARGET: JSON.stringify('client')
             }
         }),
+        new webpack.HotModuleReplacementPlugin()
     ],
     output: {
         publicPath: '/public/',
         filename: 'client.js'
-    }
-};
-
-module.exports.serve = {
-    dev: {
-        publicPath: '/public/',
-    },
-    host: '0.0.0.0',
-    port: 3001,
-    hot: {
-        host: '0.0.0.0',
-        port: 3002,
-        stats: {
-            colors: true,
-            cached: false,
-            cachedAssets: false,
-            depth: true,
-            entrypoints: true,
-        },
     }
 };

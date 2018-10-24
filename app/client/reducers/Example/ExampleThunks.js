@@ -17,7 +17,7 @@ export const asyncIncrement = () => ( // eslint-disable-line import/prefer-defau
             return;
         }
 
-        console.info(`Received response from localhost:${response.data}`);
+        console.info(`Received response from localhost, which we will ignore for this example:${response.data}`);
 
         dispatch(incrementCounter());
     }

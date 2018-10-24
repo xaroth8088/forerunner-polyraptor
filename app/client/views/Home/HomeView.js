@@ -1,15 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Button} from '@wikia/react-design-system';
+import Button from '@wikia/react-design-system/components/Button';
+
 import './HomeView.scss';
 
-const HomeView = props => (
+const HomeView = ({
+    count, onSimpleIncrement, onAsyncIncrement, onLargeIncrement,
+}) => (
     <div className="home">
         <div className="home__title">Welcome to the Fandom React Boilerplate!</div>
-        <div className="home__count">Current count: {props.count}</div>
-        <Button onClick={props.onSimpleIncrement}>Simple Increment</Button>
-        <Button onClick={props.onAsyncIncrement}>Async Increment</Button>
-        <Button onClick={props.onLargeIncrement}>Large Increment</Button>
+        <div className="home__count">
+            {`Current count: ${count}`}
+        </div>
+        <Button onClick={onSimpleIncrement}>Simple Increment</Button>
+        <Button onClick={onAsyncIncrement}>Async Increment</Button>
+        <Button onClick={onLargeIncrement}>Large Increment</Button>
     </div>
 );
 
