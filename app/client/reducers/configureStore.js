@@ -3,10 +3,6 @@ import thunkMiddleware from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import rootReducer from 'reducers/rootReducer';
 
-export function serverSideStore() {
-    return configureStore({}, false);
-}
-
 export default function configureStore(preloadedState, hot = true) {
     const store = createStore(
         rootReducer,
@@ -26,4 +22,8 @@ export default function configureStore(preloadedState, hot = true) {
     }
 
     return store;
+}
+
+export function serverSideStore() {
+    return configureStore({}, false);
 }

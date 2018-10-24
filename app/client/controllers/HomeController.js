@@ -21,12 +21,14 @@ const mapDispatchToProps = dispatch => ({
     },
 });
 
-const HomeController = props => (
+const HomeController = ({
+    count, onSimpleIncrement, onAsyncIncrement, onLargeIncrement,
+}) => (
     <HomeView
-        count={props.count}
-        onSimpleIncrement={props.onSimpleIncrement}
-        onAsyncIncrement={props.onAsyncIncrement}
-        onLargeIncrement={props.onLargeIncrement}
+        count={count}
+        onSimpleIncrement={onSimpleIncrement}
+        onAsyncIncrement={onAsyncIncrement}
+        onLargeIncrement={onLargeIncrement}
     />
 );
 
