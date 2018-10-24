@@ -67,7 +67,7 @@ This is a one-time mandatory step.  It can safely be re-run anytime you want to 
 At this point, you can visit http://localhost:8080 to see the 502 error page served from nginx.
 
 Once in the container:
-`# yarn dev`
+`# yarn start`
 
 Webpack will compile the application and start up the dev server.
 
