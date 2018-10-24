@@ -22,8 +22,7 @@ module.exports = {
             {
                 test: /\.js$/,
                 include: [
-                    path.resolve(__dirname, '..'),
-                    path.resolve(__dirname, '../node_modules/@Wikia/react-design-system'),
+                    path.resolve(__dirname, '..')
                 ],
                 use: [{
                     loader: 'babel-loader',

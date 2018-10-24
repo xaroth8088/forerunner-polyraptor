@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Button} from '@wikia/react-design-system';
+import Button from '@wikia/react-design-system/components/Button';
+
 import './HomeView.scss';
 
 const HomeView = props => (
