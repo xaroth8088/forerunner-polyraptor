@@ -2,7 +2,7 @@
   "name": "fandom-react-boilerplate",
   "version": "1.0.0",
   "description": "A reasonable starting point for a React application",
-  "repository": "https://gbenson-wikia@github.com/gbenson-wikia/fandom-react-boilerplate.git",
+  "repository": "github:gbenson-wikia/fandom-react-boilerplate",
   "author": "Geoffrey Benson <gbenson@wikia-inc.com>",
   "license": "Apache 2.0",
   "private": true,
@@ -24,10 +24,10 @@
     "lint:fix": "npm-run-all --continue-on-error --parallel lint:fix:eslint lint:fix:stylelint"
   },
   "dependencies": {
-    "@wikia/react-design-system": "git://github.com/Wikia/react-design-system.git",
+    "@wikia/react-design-system": "git://github.com/Wikia/react-design-system.git#2.2.3",
     "axios": "^0.18.0",
     "css-loader": "^0.28.11",
-    "design-system": "git://github.com/Wikia/design-system.git#12.0.0",
+    "design-system": "git://github.com/Wikia/design-system.git#14.2.0",
     "express": "^4.16.3",
     "immutable": "^3.8.2",
     "mime": "^2.3.1",
