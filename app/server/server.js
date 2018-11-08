@@ -4,6 +4,7 @@ import React from 'react';
 import { renderToNodeStream } from 'react-dom/server';
 import { Provider } from 'react-redux';
 import { serverSideStore } from 'reducers/configureStore';
+import serialize from 'serialize-javascript';
 
 const app = express();
 const store = serverSideStore();
@@ -35,7 +36,7 @@ app.get('/', (req, res) => {
     const json = JSON.stringify(preloadedState);
 
     stream.on('end', () => res.end(`</div>
-        <script>window.__INITIAL_STATE__ = ${json}</script>
+        <script>window.__INITIAL_STATE__ = ${serialize(json, { isJSON: true })}</script>
         <script src="/public/client.js"></script>
     </body>
 </html>`));
