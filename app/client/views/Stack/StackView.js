@@ -1,11 +1,11 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import { List } from 'immutable';
-
-import './StackView.scss';
+import PropTypes from 'prop-types';
+import React from 'react';
 import { EVENT_TYPES } from 'records/GameStateRecord';
 
-function StackView ({ stack }) {
+import './StackView.scss';
+
+function StackView({ stack }) {
     if (stack.size === 0) {
         return (
             <div className="stack">
@@ -13,10 +13,13 @@ function StackView ({ stack }) {
                     The stack is currently empty
                 </div>
             </div>
-        )
+        );
     }
     return (
         <div className="stack">
+            <div className="stack__count">
+                {`${stack.size} events(s) pending on the stack`}
+            </div>
             {
                 stack
                     .reverse()

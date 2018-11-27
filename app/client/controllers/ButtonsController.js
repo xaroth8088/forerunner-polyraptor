@@ -3,6 +3,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { GAME_STATE_RECORD_KEYS } from 'records/GameStateRecord';
 import { addForerunner, addPolyraptor, processStack, reset, castDinosaur } from 'reducers/GameState/GameStateActions';
+import { autoPlay } from 'reducers/GameState/GameStateThunks';
 import ButtonsView from 'views/Buttons/ButtonsView';
 
 function mapStateToProps(state) {
@@ -31,6 +32,7 @@ function mapDispatchToProps(dispatch) {
 
         onCastDinosaur() {
             dispatch(castDinosaur());
+            dispatch(autoPlay());
         }
     };
 }

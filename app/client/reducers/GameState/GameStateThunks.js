@@ -1,24 +1,20 @@
-import { incrementCounter } from 'reducers/GameState/ExampleActions';
-import axios from 'axios';
+import { GAME_STATE_RECORD_KEYS } from 'records/GameStateRecord';
+import { processStack } from 'reducers/GameState/GameStateActions';
 
-export const asyncIncrement = () => ( // eslint-disable-line import/prefer-default-export
-    async (dispatch, getState) => {
-        let response;
-
-        console.info(`Before fetching, our count was:${getState().ExampleReducer.getCount()}`);
-
-        try {
-            response = await axios({
-                method: 'GET',
-                url: 'http://localhost:8080',
-            });
-        } catch (err) {
-            console.error(`Couldn't contact localhost:${err}`);
+export function autoPlay() {
+    return (dispatch, getState) => {
+        const stackSize = getState().GameStateReducer.get(GAME_STATE_RECORD_KEYS.stack).size;
+        if (stackSize === 0) {
             return;
         }
 
-        console.info(`Received response from localhost, which we will ignore for this example:${response.data}`);
+        dispatch(processStack());
 
-        dispatch(incrementCounter());
-    }
-);
+        setTimeout(
+            () => {
+                dispatch(autoPlay());
+            },
+            1000 - 40 * stackSize
+        );
+    };
+}
