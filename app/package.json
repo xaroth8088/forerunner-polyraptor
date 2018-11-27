@@ -9,9 +9,10 @@
   "scripts": {
     "container:build": "../scripts/host_only.sh && ../scripts/build_container.sh",
     "container:start": "../scripts/host_only.sh && ../scripts/start_container.sh",
-    "clean": "rimraf build",
+    "clean": "rimraf build dist",
     "start": "yarn clean && npm-run-all start:client",
     "start:client": "../scripts/container_only.sh && webpack-dev-server --config webpack/webpack-dev-client.conf.js",
+    "build": "../scripts/container_only.sh && yarn clean && webpack --progress --colors --config webpack/webpack-prod-client.conf.js",
     "lint:eslint": "yarn eslint --ext js client",
     "lint:fix:eslint": "yarn eslint --fix --ext js client",
     "lint:stylelint": "yarn stylelint \"client/**/*.{css,scss}\"",
