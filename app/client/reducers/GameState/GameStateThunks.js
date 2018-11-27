@@ -1,4 +1,4 @@
-import { incrementCounter } from 'reducers/Example/ExampleActions';
+import { incrementCounter } from 'reducers/GameState/ExampleActions';
 import axios from 'axios';
 
 export const asyncIncrement = () => ( // eslint-disable-line import/prefer-default-export

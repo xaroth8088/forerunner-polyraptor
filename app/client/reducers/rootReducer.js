@@ -1,8 +1,8 @@
-import ExampleReducer from 'reducers/Example/ExampleReducer';
+import GameStateReducer from 'reducers/GameState/GameStateReducer';
 import { combineReducers } from 'redux';
 
 const rootReducer = combineReducers({
-    ExampleReducer,
+    GameStateReducer,
 });
 
 export default rootReducer;

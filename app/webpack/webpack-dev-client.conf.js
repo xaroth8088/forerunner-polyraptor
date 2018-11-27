@@ -14,7 +14,7 @@ module.exports = {
     mode: 'development',
     devtool: 'inline-source-map',
     devServer: {
-        contentBase: '/public/',
+        contentBase: path.resolve(__dirname, '../public/'),
         host: '0.0.0.0',
         port: 3001,
         disableHostCheck: true,
