@@ -55,3 +55,4 @@ fabric.properties
 /app/node_modules/
 /app/build/
 yarn-error.log
+/app/dist/

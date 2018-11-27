@@ -101,7 +101,7 @@ class GameStateRecord extends Record(gameStateRecordRecordSchema, 'GameStateReco
         newState = newState
             .set(
                 GAME_STATE_RECORD_KEYS.total_creature_damage,
-                this.get(GAME_STATE_RECORD_KEYS.total_creature_damage) + this.get(GAME_STATE_RECORD_KEYS.battlefield).size
+                this.get(GAME_STATE_RECORD_KEYS.total_creature_damage) + 1
             )
             .set(
                 GAME_STATE_RECORD_KEYS.battlefield,
